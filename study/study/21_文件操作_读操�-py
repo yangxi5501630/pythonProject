@@ -1,0 +1,80 @@
+'''
+文件操作:
+1、打开文件
+2、读文件内容
+3、关闭文件
+
+1、打开文件
+open(path, flag[, encoding][, errors])
+path:要打开文件的路径
+flag:打开方式
+r    以只读的方式打开文件
+rb   以二进制格式打开一个文件用于只读
+r+   打开一个文件用于读写
+w    打开一个文件只用于写入，如果该文件已经存在会覆盖，如果不存在则创建新文件
+wb   打开一个文件值用于写入二进制，如果该文件已经存在会覆盖，如果不存在则创建新文件
+w+   打开一个文件用于读写
+a    打开一个文件用于追加，如果文件存在，文件描述符将会放到文件末尾
+encoding:编码方式
+errors:错误处理
+'''
+#1.打开文件
+path = r"/home/youcw/PycharmProjects/study/helloworld.txt"
+fp = open(path, 'r', encoding='utf-8')
+
+#2.读取文件全部内容
+str = fp.read()
+print(str)
+
+print("*****************************")
+
+#读取指定大小内容
+fp.seek(0) #重新指定到文件开头
+str1 = fp.read(5)
+print(str1)
+
+str2 = fp.read(5)
+print(str2)
+
+#读取一行
+fp.seek(0)
+str3 = fp.readline()
+print(str3)
+str4 = fp.readline()
+print(str4)
+
+#读取一行指定的字节数
+fp.seek(0)
+str5 = fp.readline(5)
+print(str5)
+
+#读取所有行,并返回列表
+fp.seek(0)
+lists = fp.readlines()
+print(lists)
+
+#若给定的数字大于0,返回实际size字节的行数
+fp.seek(0)
+lists1 = fp.readlines(10)
+print(lists1)
+
+fp.seek(0)
+lists1 = fp.readlines(100)
+print(lists1)
+
+#关闭文件
+fp.close()
+
+#文件实际操作框架:
+try:
+    fp1 = open(path, 'r', encoding='utf-8')
+    print(fp1.read())
+except:
+    print("出错了")
+finally:
+    if fp1:
+        fp1.close()
+
+#with
+with open(path, 'r', encoding='utf-8') as f2:
+    print(f2.read())

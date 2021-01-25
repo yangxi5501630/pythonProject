@@ -1,0 +1,31 @@
+class student(object):
+    #这里的属性属于类属性,用类名调用
+    name = "无名人士"
+
+    def __init__(self,name):
+        #这里属于对象属性
+        self.name = name
+
+#访问类属性
+print(student.name)
+
+#对象属性的优先级高于类属性
+A = student("张三")
+print(A.name)
+
+#动态给对象添加属性
+#只针对当前对象,对其他类对象不会生效
+A.age = 18
+print(A.age)
+
+B = student("李四")
+#print(B.age) #没有这个属性
+
+#删除对象中的name属性，再调用会使用到同名的类属性
+#注意：以后千万不要讲对象属性与类属性重名，因为对象属性会屏蔽掉类属性
+del A.name
+print(A.name)
+
+
+
+

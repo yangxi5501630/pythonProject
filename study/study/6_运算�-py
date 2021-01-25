@@ -1,0 +1,118 @@
+'''
+运算符
+'''
+num1 = 5
+num2 = 3
+print(5+3)
+print(5-3)
+print(5*3)
+print(5/3)
+print(5%3)  #取模
+print(5**3) #密
+print(5//3) #取整
+
+'''
+符合运算
+'''
+num1 += num2
+print(num1)
+
+num1 = 5
+num1 -= num2
+print(num1)
+
+num1 = 5
+num1 *= num2
+print(num1)
+
+num1 = 5
+num1 /= num2
+print(num1)
+
+num1 = 5
+num1 %= num2
+print(num1)
+
+num1 = 5
+num1 //= num2
+print(num1)
+
+#位运算
+print(1&0)
+print(1|0)
+print(1^0)
+print(~0)
+print(1 << 1)
+print(2 >> 1)
+
+
+#关系运算符:== != > < >= <=
+if 1==1:
+    print("eq")
+
+if 2 != 1:
+    print("ne")
+
+if 3 > 2:
+    print("yes")
+
+if 2 < 3:
+    print("yes")
+
+if 3>=3:
+    print("yes")
+
+if 3 <= 3:
+    print("yes")
+
+#逻辑运算符:and or not
+if 1 == 1 and 2 == 2:
+    print("eq")
+
+if 1 == 1 or 1 == 2:
+    print("eq")
+
+if not 0:
+    print("bad")
+
+if not 1==2:
+    print("bad")
+
+#成员运算符:in / not in
+if 1 in [1,2,3]:
+    print("in")
+
+if 4 in [1,2,3]:
+    print("in")
+
+if 1 not in [1,2,3]:
+    print("in")
+
+if 4 not in [1,2,3]:
+    print("in")
+
+#身份运算符:is / is not
+#判断是否是引用同一个对象/判断是否应用不同对象
+num1 = 1
+num2 = 1
+print(id(num1), id(num2))
+if num1 is num2:
+    print("is")
+
+num1 = 1
+num2 = 2
+print(id(num1), id(num2))
+if num1 is num2:
+    print("is")
+
+num1 = 1
+num2 = 1
+print(id(num1), id(num2))
+if num1 is not num2:
+    print("is not")
+
+num1 = 1
+num2 = 2
+print(id(num1), id(num2))
+if num1 is not num2:
+    print("is not")

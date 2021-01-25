@@ -1,0 +1,37 @@
+from multiprocessing import Process
+from time import sleep
+import os
+
+'''
+#主开始->主结束->子开始->子结束
+def run(str):
+    print("子进程开始.")
+    sleep(3)
+    print("子进程结束")
+
+if __name__ == "__main__":
+    print("主进程开始.")
+
+    p = Process(target=run, args=("张三",))
+
+    p.start()
+
+    print("主进程结束.")
+
+'''
+def run(str):
+    print("子进程开始.")
+    sleep(3)
+    print("子进程结束")
+
+if __name__ == "__main__":
+    print("主进程开始.")
+
+    p = Process(target=run, args=("张三",))
+
+    p.start()
+
+    #等待子进程结束
+    p.join()
+
+    print("主进程结束.")

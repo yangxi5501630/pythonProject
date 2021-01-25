@@ -1,0 +1,8 @@
+'''
+文件写操作
+'''
+path =  r"/home/youcw/PycharmProjects/study/helloworld1.txt"
+fp = open(path, 'w', encoding='utf-8')
+fp.write("hello,world")
+fp.close()
+

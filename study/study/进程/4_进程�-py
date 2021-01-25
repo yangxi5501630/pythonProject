@@ -1,0 +1,29 @@
+from multiprocessing import Pool
+from time import sleep
+import os
+import random
+
+def run(id):
+    print("子进程 %s, pid = %s 开始" %(id, os.getpid()))
+    sleep(random.choice([1,2,3]))
+    print("子进程 %s, pid = %s 结束" %(id, os.getpid()))
+
+if __name__ == "__main__":
+    print("主进程开始.")
+
+    #创建线程池
+    #表示可以同时执行的进程数量
+    #Pool默认大小是CPU核心数
+    pp = Pool(4)
+
+    #创建子进程然后放入进程池中
+    for i in range(10):
+        pp.apply_async(run, args=(i,))
+
+    #必须进程池,以后不允许添加进程
+    pp.close()
+
+    #等待
+    pp.join()
+
+    print("主进程结束")

@@ -1,0 +1,250 @@
+'''
+字符串:可以用单引号或者双引号表示
+字符串不可改变
+'''
+str1 = 'hello'
+str2 = "world"
+print(str1, str2)
+
+#拼接
+str3 = str1 + str2
+print(str3)
+
+str4 = 'hello'
+str5 = str4 * 3
+print(str5)
+
+#访问其中一个字符
+str6 = 'hello'
+print(str6[1])
+
+#字符串不可变
+#str6[1] = 'a'
+print(str6)
+
+#字符串截取
+str7 = 'hello,world'
+print(str7[:5])
+print(str7[1:5])
+print(str7[6:])
+print("hello" in str7)
+print("hello1" not in str7)
+
+#print格式化输出
+num = 10
+str8 = "tarena"
+f = 10.3211
+print("num = ",num, "str8 = ", str8)
+print("%d %s %.3f" %(num, str8, f))
+
+#转以字符
+#牛逼的r
+print("hello\nworld")
+print(r"hello\nworld")
+
+#字符串操作函数
+#eval:将字符串当成有效表达式求值并且返回其运算结果
+num1 = eval('123')
+print(type(num1))
+print(num1)
+print(eval("+123"))
+print(eval("-123"))
+print(eval("1+2"))
+print(eval("10-9"))
+#print(eval("a1234")) #无效字符串
+
+#len:求字符串的长度
+print(len("hello"))
+
+#low:大搞小
+str9 = "HEllo"
+str10 = str9.lower()
+print(str10)
+
+#upper:小->大
+str11 = str9.upper()
+print(str11)
+
+#swapcase:互换
+str12 = str9.swapcase()
+print(str12)
+
+#capitalize:首字母大写
+print(str9.capitalize())
+
+#title:每个单词首字母大写
+str13 = "hello world china hello"
+print(str13.title())
+
+#center:填充字符串,返回一个指定宽度的居中字符串，fillchar为填充的字符串,默认空格填充
+print(str13.center(40, '*'))
+
+#ljuest:返回左对齐字符串,填充
+print(str13.ljust(40, "%"))
+
+#rjust:返回右对其字符串
+print(str13.rjust(40, "%"))
+
+#zfill:#返回一个长度为width的字符串，原字符串右对齐，前面补0
+print(str13.zfill(40))
+
+#count:获取子字符串的个数
+#start起始位置开始=5
+print(str13.count("hello"))
+print(str13.count("hello", 5, len(str13)))
+
+#find:查找子字符串出现的第一次位置并返回下标
+#start起始位置开始=5
+print(str13.find("hello"))
+print(str13.find("hello", 5, len(str13)))
+
+#rfind:从右边查找子字符串出现的第一次位置并返回下标
+print(str13.rfind("hello"))
+
+#index:和find一样,找不到返回异常
+print(str13.index("hello"))
+print(str13.index("hello", 5, len(str13)))
+
+#rindex:和rfind一样,找不到返回异常
+print(str13.rindex("hello"))
+
+str14 = "***** hello world tarena ********"
+#strip()截掉指定的字符
+print(str14.strip("*"))
+
+#lstrip()截掉字符串左侧指定的字符，默认为空格
+print(str14.lstrip("*"))
+
+#rstrip()截掉字符串右侧指定的字符，默认为空格
+print(str14.rstrip("*"))
+
+#ord:字符转ASCII
+#chr:ASCII转字符
+str15 = 'a'
+print(ord(str15))
+
+str16 = chr(97)
+print(str16)
+
+#split:截取字符串
+str17 = "www.tarnea.com.cn"
+str18 = str17.split(".")
+print(str18)
+
+str19 = str17.split(".", 2) #分割两次
+print(str19)
+
+#splitlines([keepends])   ('\r', '\r\n',  '\n')分隔
+str20 = '''hello
+world
+tarena
+china
+beijing
+'''
+str21 = str20.splitlines()
+print(str21)
+
+#join(seq)  以指定的字符串分隔符，将seq中的所有元素组合成一个字符串
+list1 = ['www', 'tarena', 'com']
+str22 = "."
+str23 = str22.join(list1)
+print(str23)
+
+#max()  min()
+str24 = "hello,world z"
+print(max(str24))
+print("*"+min(str24)+"*")
+
+#replace(oldstr, newstr, count)
+#用newstr替换oldstr，默认是全部替换。如果指定了count，那么只替换前count个
+str25 = "hello world hello tarena"
+str26 = str25.replace("hello", "你好", 1)
+print(str25)
+print(str26)
+
+#startswith(str, start=0, end=len(str)
+#在给定的范围内判断是否是以给定的字符串开头，如果没有指定范围，默认整个字符串
+str27 = "hello world tarena"
+print(str27.startswith("hello"))
+print(str27.startswith("hello", 5, len(str27)))
+
+#endswith(str, start=0, end=len(str)
+#在给定的范围内判断是否是以给定的字符串结尾，如果没有指定范围，默认整个字符串
+str28 = "hello world tarena"
+print(str28.endswith("tarena"))
+
+
+#编码
+#encode(encoding="utf-8", errors="strict")
+str29 = "hello world 神"
+#ignore忽略错误
+data = str29.encode("utf-8", "ignore")
+print(data)
+print(type(data))
+
+#解码  注意：要与编码时的编码格式一致
+str30 = data.decode("utf-8", "ignore")
+print(str30)
+
+#isalpha()
+#如果字符串中至少有一个字符且所有的字符都是字母返回True,否则返回False
+str31 = "helloworld"
+print(str31.isalpha())
+
+#isalnum()
+#如果字符串中至少有一个字符且所有的字符都是字母或数字返回True,否则返回False
+str32= "1a2b3"
+print(str32.isalnum())
+
+
+#isupper()
+#如果字符串中至少有一个英文字符且所有的英文字符都是大写的英文字母返回True,否则返回False
+print("ABC".isupper())
+print("1".isupper())
+print("ABC1".isupper())
+print("ABc#".isupper())
+
+print("******** islower *******")
+#islower()
+#如果字符串中至少有一个英文字符且所有的英文字符都是小写的英文字母返回True,否则返回False
+print("abc".islower())
+print("abcA".islower())
+print("1".islower())
+print("abc1".islower())
+print("abc#".islower())
+
+
+print("***** istitle *****")
+#istitle()
+#如果字符串是标题化的返回True，否则返回False
+print("Sunck Is".istitle())
+print("Sunck is".istitle())
+print("sunck is".istitle())
+
+
+print("****** isdigit *****")
+#isdigit()
+#如果字符串中只包含数字字符返回True，否则False
+print("123".isdigit())
+print("123a".isdigit())
+
+
+print("**** isnumeric ****")
+#isnumeric()同上
+print("123".isnumeric())
+print("123a".isnumeric())
+
+print("**** isdecimal ****")
+#字符串中只包含十进制字符
+print("123".isdecimal())
+print("123z".isdecimal())
+
+
+print("**** isspace ****")
+#如果字符中只包含空格则返回True,否则返回False
+print(" ".isspace())
+print("      ".isspace())
+print("abc".isspace())
+print("\t".isspace())
+print("\n".isspace())
+print("\r".isspace())

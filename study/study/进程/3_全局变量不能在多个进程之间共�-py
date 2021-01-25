@@ -1,0 +1,20 @@
+from multiprocessing import Process
+from time import sleep
+import os
+
+#全局变量
+num = 10
+
+def run():
+    global  num #访问全局变量
+    num += 1
+    print("子进程:", num)
+
+if __name__ == "__main__":
+    print("主进程启动.")
+    p = Process(target=run)
+    p.start()
+    p.join()
+    print("主进程:", num)
+    print("主进程结束.")
+

@@ -1,0 +1,16 @@
+class student(object):
+    def __init__(self, num):
+        self.num = num
+
+    #运算符重载
+    def __add__(self, other):
+        return student(self.num + other.num)
+
+    def __str__(self):
+        return "num = " + str(self.num)
+
+A = student(1)
+B = student(2)
+print(A + B) #A.__add__(B)
+print(A)
+print(B)

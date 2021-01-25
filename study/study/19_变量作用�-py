@@ -1,0 +1,77 @@
+'''
+只有模块,函数,类有作用域,其他(if...else/while/for)不会引入作用与
+'''
+#情形1:
+if 1:
+    a = 10
+print(a) #没有作用与
+
+#情形2
+def fun():
+    b = 20
+    print(b)
+
+fun()
+#print(b) #b的作用与仅限函数
+
+#情形3
+num = 10 #全局的
+
+def test_num():
+    #num += 20 #报错,此时num为局部,这里没有定义
+    print(num) #打印全局的
+
+test_num()
+
+#情形4
+num = 10 #全局的
+
+def test_num():
+    global num #声明此函数可以修改全局变量并且可以修改此全局变量
+               #如果不修改的话,可以不加global声明,直接写num即可
+    num += 20
+    print(num)
+
+test_num()
+
+#情形5:
+num = 10 #全局的
+
+def test_num():
+    num = 250 #局部的
+    num += 20 #局部的
+    print(num) #局部的
+
+test_num()
+print(num) #全局的
+
+#情形6:函数嵌套
+num = 10 #全局的
+def outer():
+    num  = 250 #局部的
+    def inner():
+        nonlocal num #使用嵌套函数的局部变量num,告诉解释器，后面的num是上面的num
+        num += 1 #局部的
+        print(num) #局部的
+    return inner
+
+x = outer()
+x()
+print(num) #全局的
+
+#来来来,练练
+num = 250
+def outer():
+    num = 10
+    def inner():
+        nonlocal num #告诉解释器，后面的num是上面的num
+        num = 20
+        def little():
+            nonlocal num #告诉解释器,后面的num是最上面的num
+            num = 30
+            print("在little里打印Num =", num)
+        little()
+        print("在inner里打印num =", num)
+    inner()
+    print("在outer里打印num =", num)
+outer()

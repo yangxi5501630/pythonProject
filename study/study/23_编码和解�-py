@@ -1,0 +1,14 @@
+path =  r"/home/youcw/PycharmProjects/study/helloworld2.txt"
+with open(path, 'wb') as f1:
+    str = "你是上帝"
+    f1.write(str.encode())
+    f1.close()
+
+with open(path, 'rb') as f2:
+    data = f2.read()
+    print(data)
+    print(type(data))
+    str = data.decode()
+    print(str)
+    print(type(str))
+    f2.close()

@@ -1,0 +1,35 @@
+#定义父类
+class persion(object):
+    def __init__(self, name, age, money):
+        self.name = name
+        self.age = age
+        self.__money = money
+
+    def setmoney(self, money):
+        self.__money = money
+
+    def getmoney(self):
+        return self.__money
+
+#单继承
+class student(persion):
+    def __init__(self, name, age, weight, height, money):
+        #调用父类的__init__函数
+        super(student, self).__init__(name, age, money)
+        self.weight = weight
+        self.height = height
+
+    def printinfo(self):
+        print(self.name, self.age, self.weight,self.height)
+
+
+A = student("张三", 18, 177, 170, 10000)
+A.printinfo()
+
+A.setmoney(500)
+print(A.getmoney())
+
+
+
+
+

@@ -1,0 +1,22 @@
+#定义初始化对象age
+age = 18
+print(age)
+
+#删除对象
+del age
+
+#无对象,会报错
+#print(age)
+
+age = 18
+#age = "lilei"
+#打印数据类型
+print(type(age))
+#打印地址
+print(id(age))
+
+#将输入的string类型转换为int类型
+num1 = int(input("请输入数字1:"))
+num2 = int(input("请输入数字2:"))
+print("num1 + num2 = ", num1+num2)
+

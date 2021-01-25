@@ -1,0 +1,35 @@
+#多继承
+class father(object):
+    def __init__(self, money):
+        self.money = money
+
+    def play(self):
+        print("play")
+
+    def testfun(self):
+        print("father")
+
+class mother(object):
+    def __init__(self, facevalue):
+        self.facevalue = facevalue
+
+    def run(self):
+        print("run")
+
+    def testfun(self):
+        print("monther")
+
+class child(father, mother):
+    def __init__(self, money, facevalue):
+        father.__init__(self, money)
+        mother.__init__(self, facevalue)
+
+def main():
+    c = child(10000, 100)
+    print(c.money, c.facevalue)
+    c.play()
+    c.run()
+    c.testfun()
+
+if __name__ == '__main__':
+    main()
